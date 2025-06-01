@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reserva de Mesas</title>
+  <link rel="stylesheet" href="restaurante.css">
+</head>
+<body>
+
+<header>
+  <h1>Reserva Mesas</h1>
+</header>
+
+<nav id="mainNav" style="display:none;">
+  <button onclick="mostrarSeccion('perfil')">Perfil</button>
+  <button onclick="mostrarSeccion('reserva')">Reservar</button>
+  <button onclick="mostrarSeccion('resena')">Reseñas</button>
+</nav>
+
+<main>
+
+  <!-- INICIO -->
+  <section id="inicio" class="active inicio-section">
+    <div class="inicio-overlay">
+      <h2>Bienvenido a Reserva de Mesas</h2>
+      <p>Explora restaurantes y reserva fácilmente.</p>
+      <button onclick="mostrarSeccion('registro')">Registrarse</button>
+      <button onclick="mostrarSeccion('login')">Iniciar Sesión</button>
+    </div>
+  </section>
+
+  <!-- LOGIN -->
+  <section id="login" class="active">
+    <div class="formulario-section">
+      <div class="formulario-img"></div>
+      <div class="formulario-content">
+        <div class="volver" onclick="mostrarSeccion('inicio')">← Volver</div>
+        <h2>Iniciar Sesión</h2>
+        <form onsubmit="return validarLogin()">
+          <input type="email" id="loginEmail" placeholder="Correo electrónico">
+          <input type="password" id="loginPass" placeholder="Contraseña">
+          <button type="submit">Entrar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTRO -->
+  <section id="registro">
+    <div class="formulario-section">
+      <div class="formulario-img"></div>
+      <div class="formulario-content">
+        <div class="volver" onclick="mostrarSeccion('inicio')">← Volver</div>
+        <h2>Registro de Usuario</h2>
+        <form onsubmit="return validarRegistro()">
+          <input type="text" id="regNombre" placeholder="Nombre completo">
+          <input type="email" id="regEmail" placeholder="Correo electrónico">
+          <input type="password" id="regPass1" placeholder="Contraseña">
+          <input type="password" id="regPass2" placeholder="Confirmar contraseña">
+          <button type="submit">Registrarse</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERFIL -->
+  <section id="perfil" class="formulario">
+    <div class="volver" onclick="cerrarSesion()">← Cerrar sesión</div>
+    <h2>Perfil del Cliente</h2>
+    <form onsubmit="return validarPerfil()">
+      <input type="text" id="perfilNombre" placeholder="Nombre completo">
+      <input type="tel" id="perfilTel" placeholder="Teléfono">
+      <input type="text" id="perfilDir" placeholder="Dirección">
+
+      <!-- ID cambiado para evitar conflicto -->
+      <select id="perfilRestaurante">
+        <option value="">Seleccione restaurante</option>
+        <option value="1">La Pizzería</option>
+        <option value="2">Sushi Rey</option>
+        <option value="3">McDonald's</option>
+        <option value="4">KFC</option>
+        <option value="5">Rey Pollo</option>
+        <option value="6">La Esquina de Ale</option>
+      </select>
+
+      <button type="submit">Guardar</button>
+    </form>
+  </section>
+
+  <!-- RESERVA -->
+  <section id="reserva">
+    <div class="formulario-section">
+      <div class="formulario-img"></div>
+      <div class="formulario-content">
+        <div class="volver" onclick="cerrarSesion()">← Cerrar sesión</div>
+        <h2>Reservar Mesa</h2>
+        <form onsubmit="return validarReserva()">
+          <select id="resRestaurante" onchange="cargarComidas()">
+            <option value="">Seleccione restaurante</option>
+            <option value="1">La Pizzería</option>
+            <option value="2">Sushi Rey</option>
+            <option value="3">McDonald's</option>
+            <option value="4">KFC</option>
+            <option value="5">Rey Pollo</option>
+            <option value="6">La Esquina de Ale</option>
+          </select>
+
+          <select id="resComida">
+            <option value="">Seleccione comida</option>
+          </select>
+
+          <input type="date" id="resFecha">
+          <input type="time" id="resHora">
+          <input type="number" id="resPersonas" placeholder="N.º de personas" min="1" max="10">
+          <button type="submit">Reservar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEÑA -->
+  <section id="resena">
+    <div class="formulario-section">
+      <div class="formulario-img"></div>
+      <div class="formulario-content">
+        <div class="volver" onclick="cerrarSesion()">← Cerrar sesión</div>
+        <h2>Dejar Reseña</h2>
+        <form onsubmit="return validarResena()">
+          <select id="resenaRest">
+            <option value="">Seleccione restaurante</option>
+            <option value="1">La Pizzería</option>
+            <option value="2">Sushi Rey</option>
+            <option value="3">McDonald's</option>
+            <option value="4">KFC</option>
+            <option value="5">Rey Pollo</option>
+            <option value="6">La Esquina de Ale</option>
+          </select>
+          <input type="number" id="resenaPunt" placeholder="Puntuación (1-10)" min="1" max="10">
+          <textarea id="resenaComent" placeholder="Tu comentario..."></textarea>
+          <button type="submit">Enviar Reseña</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="restaurante.js"></script>
+</body>
+</html>
+

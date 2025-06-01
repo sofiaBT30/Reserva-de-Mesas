@@ -1,0 +1,197 @@
+
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+header {
+  background-color: hsla(33, 86%, 40%, 0.996);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #edb46a;
+  padding: 10px;
+}
+
+nav button {
+  padding: 10px 20px;
+  background-color: #d6845d64;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+nav button:hover {
+  background-color: #e9c886;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  display: none;
+}
+
+section.active {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Estilo compartido para secciones con imagen */
+.formulario-section {
+  background-color: rgb(229, 232, 236);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  width: 90%;
+  max-width: 900px;
+  min-height: 500px;
+}
+
+.formulario-img {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+}
+
+.formulario-content {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+input, select, textarea, button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 6px;
+  border: 2px solid #1fa3be;
+  font-size: 1em;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.volver {
+  color: #555;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 1em;
+  text-decoration: underline;
+  align-self: flex-start;
+}
+
+/* Página de inicio */
+.inicio-section {
+  background: url('mesas.jpg') no-repeat center center/cover;
+  height: 100vh;
+  position: relative;
+}
+
+.inicio-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  text-align: center;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.inicio-overlay h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.inicio-overlay button {
+  width: 150px;
+  margin: 10px;
+  background-color: #ff6600;
+  border: none;
+  color: rgb(225, 230, 233);
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Fondos por sección */
+#login .formulario-img { background-image: url('login.jpg'); }
+#registro .formulario-img { background-image: url('registro.jpg'); }
+#reserva .formulario-img { background-image: url('mesa6.jpg'); }
+#resena .formulario-img { background-image: url('mesa4.jpg'); }
+
+
+/* Compatibilidad para pantallas pequeñas */
+@media (max-width: 768px) {
+  .formulario-section {
+    flex-direction: column;
+  }
+
+  .formulario-img {
+    height: 200px;
+  }
+}
+/* Fondo color para Perfil del Cliente */
+#perfil .formulario-section {
+  background-color: #49cbeb; /* azul clarito */
+}
+
+/* Imagen para Registro  */
+#registro .formulario-img {
+  background-image: url('perfil.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Imagen para Login */
+#login .formulario-img {
+  background-image: url('mesa1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+
+
